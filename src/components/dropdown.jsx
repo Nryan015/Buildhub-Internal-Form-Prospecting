@@ -24,9 +24,9 @@ function Dropdown(props) {
     <div>
       <label className="form-track__label">{labelText}</label>
       <select className="form-track__input" value={selectedOption} onChange={handleSelectChange}>
-        {options.map((company, index) => (
-          <option key={index} value={company}>
-            {company}
+        {options.map((list, index) => (
+          <option key={index} value={list}>
+            {list}
           </option>
         ))}
         <option value="Others">Others</option>
