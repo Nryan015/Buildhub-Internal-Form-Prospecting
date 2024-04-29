@@ -38,6 +38,19 @@ function Body(){
     });
   };
 
+   //Handle Submit
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const response = await axios.post('http://localhost:3001/submit-form', formData);
+  //     console.log(response.data);
+  //     // Handle success response
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //     // Handle error
+  //   }
+  // };
+
 
   const cities = [
     "Caloocan", "Las Piñas", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", "Navotas",
