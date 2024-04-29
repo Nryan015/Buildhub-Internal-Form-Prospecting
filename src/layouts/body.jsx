@@ -25,7 +25,7 @@ function Body(props){
           <h2 className="form-track__heading heading-2">Prospecting Form (NCR)</h2>
           <div className="form-track__block">  
             <TextInput labelText="Company Name" />
-            <TextInput labelNumber="Contact Name"/>
+            <TextInput labelText="Contact Name"/>
             <TextInput labelText="Position" />
             <Dropdown labelText="Select City" options={cities} />
             <TextInput labelText="Specific Address" />
