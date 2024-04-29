@@ -133,6 +133,7 @@ function Body(){
               labelText="Image Upload" 
               onImageUpload={(imageFile) => handleImageUpload(imageFile)}
             />
+            <button type="submit" className="button">Submit</button>
           </div>
         </form>
       </section>

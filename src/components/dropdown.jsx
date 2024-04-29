@@ -19,6 +19,19 @@ function Dropdown(props) {
   const handleOtherTextChange = (event) => {
     setOtherText(event.target.value);
   };
+  
+  //Handle Submit
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const response = await axios.post('http://localhost:3001/submit-form', formData);
+  //     console.log(response.data);
+  //     // Handle success response
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //     // Handle error
+  //   }
+  // };
 
   return (
     <div>

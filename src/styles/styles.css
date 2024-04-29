@@ -1,3 +1,22 @@
+.button {
+  background-color: #9d0001; /* Red background */
+  color: white; /* Black text */
+  padding: 10px 20px; /* Padding around text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block; /* Display as inline-block to center */
+  text-align: center; /* Center align text */
+  text-decoration: none; /* Remove default underline */
+  font-size: 20px; /* Font size */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* CSS for hover effect */
+.button:hover {
+  background-color: darkred; /* Darker red background on hover */
+}
+
+
 /* HEADER */
 .header {
     height: 3.7rem;
