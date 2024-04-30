@@ -50,7 +50,7 @@ function Body(){
   //     // Handle error
   //   }
   // };
-
+    
 
   const cities = [
     "Caloocan", "Las Piñas", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", "Navotas",
@@ -66,7 +66,7 @@ function Body(){
   return (
     <main className="container">
       <section className="form-box form-box--transparent">
-        <form className="form-track" onSubmit={handleSubmit}>
+        <form className="form-track" /*onSubmit={handleSubmit}*/>
           <h2 className="form-track__heading heading-2">Prospecting Form (NCR)</h2>
           <div className="form-track__block">  
             <TextInput 
