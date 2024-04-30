@@ -1,43 +1,47 @@
-import "../styles/styles.css"
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "../styles/styles.css";
 
 function Dropdown(props) {
-  const { labelText, options } = props;
-  const [selectedOption, setSelectedOption] = useState('');
-  const [otherText, setOtherText] = useState('');
+  const { labelText, options, value, onInputChange } = props;
+  const [selectedValue, setSelectedValue] = useState(value);
+  const [customValue, setCustomValue] = useState("");
 
-  const handleSelectChange = (event) => {
-    const selectedValue = event.target.value;
-    setSelectedOption(selectedValue);
-
-    // If "Others" is selected, clear the input field
-    if (selectedValue !== 'Others') {
-      setOtherText('');
+  const handleChange = (e) => {
+    const selectedOption = e.target.value;
+    if (selectedOption === "others") {
+      setSelectedValue("others");
+    } else {
+      setSelectedValue(selectedOption);
+      onInputChange(selectedOption);
     }
   };
 
-  const handleOtherTextChange = (event) => {
-    setOtherText(event.target.value);
+  const handleCustomInputChange = (e) => {
+    setCustomValue(e.target.value);
+    onInputChange(e.target.value);
   };
-  
+
   return (
     <div>
       <label className="form-track__label">{labelText}</label>
-      <select className="form-track__input" value={selectedOption} onChange={handleSelectChange}>
-        {options.map((list, index) => (
-          <option key={index} value={list}>
-            {list}
+      <select
+        className="form-track__input required"
+        value={selectedValue}
+        onChange={handleChange}
+      >
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
           </option>
         ))}
-        <option value="Others">Others</option>
+        <option value="others">Others</option>
       </select>
-      {selectedOption === 'Others' && (
+      {selectedValue === "others" && (
         <input
           type="text"
-          className="form-track__input"
-          value={otherText}
-          onChange={handleOtherTextChange}
-          placeholder="Enter Text"
+          value={customValue}
+          onChange={handleCustomInputChange}
+          placeholder="Enter custom value"
         />
       )}
     </div>

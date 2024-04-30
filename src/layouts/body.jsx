@@ -62,6 +62,7 @@ function Body() {
         city: "",
         specificAddress: "",
         mobileNumber: "",
+        
         telephone1: "",
         telephone2: "",
         supplier: "",
@@ -89,93 +90,105 @@ function Body() {
 
   return (
     <main className="container">
-      <section className="form-box form-box--transparent">
-        <form className="form-track" onSubmit={handleSubmit}>
-          <h2 className="form-track__heading heading-2">Prospecting Form (NCR)</h2>
-          <div className="form-track__block">  
-            <TextInput 
-              labelText="Company Name" 
-              value={formData.companyName}
-              onInputChange={(value) => handleInputChange("companyName", value)}
-            />
+    <section className="form-box form-box--transparent">
+      <form className="form-track" onSubmit={handleSubmit}>
+        <h2 className="form-track__heading heading-2">
+          Prospecting Form (NCR)
+        </h2>
+        <div className="form-track__block">
+          <TextInput
+            labelText="Company Name"
+            value={formData.companyName}
+            onInputChange={(value) => handleInputChange("companyName", value)}
+          />
 
-            <TextInput 
-              labelText="Contact Name"
-              value={formData.contactName}
-              onInputChange={(value) => handleInputChange("contactName", value)}
-            />
+          <TextInput
+            labelText="Contact Name"
+            value={formData.contactName}
+            onInputChange={(value) => handleInputChange("contactName", value)}
+          />
 
-            <TextInput 
-              labelText="Position" 
-              value={formData.position}
-              onInputChange={(value) => handleInputChange("position", value)}
-            />
+          <TextInput
+            labelText="Position"
+            value={formData.position}
+            onInputChange={(value) => handleInputChange("position", value)}
+          />
 
-            <Dropdown 
-              labelText="Select City" 
-              options={cities} 
-              value={formData.city}
-              onInputChange={(value) => handleInputChange("city", value)}
-            />
+          <Dropdown
+            labelText="Select City"
+            options={cities}
+            value={formData.city}
+            onInputChange={(value) => handleInputChange("city", value)}
+          />
 
-            <TextInput 
-              labelText="Specific Address" 
-              value={formData.specificAddress}
-              onInputChange={(value) => handleInputChange("specificAddress", value)}
-            />
+          <TextInput
+            labelText="Specific Address"
+            value={formData.specificAddress}
+            onInputChange={(value) =>
+              handleInputChange("specificAddress", value)
+            }
+          />
 
-            <NumberInput 
-              labelNumber="Mobile Number" 
-              value={formData.mobileNumber}
-              onInputChange={(value) => handleInputChange("mobileNumber", value)}
-            />
+          <NumberInput
+            labelNumber="Mobile Number"
+            value={formData.mobileNumber}
+            onInputChange={(value) =>
+              handleInputChange("mobileNumber", value)
+            }
+          />
 
-            <NumberInput 
-              labelNumber="Telephone No. 1" 
-              value={formData.telephone1}
-              onInputChange={(value) => handleInputChange("telephone1", value)} 
-            />
+          <NumberInput
+            labelNumber="Telephone No. 1"
+            value={formData.telephone1}
+            onInputChange={(value) =>
+              handleInputChange("telephone1", value)
+            }
+          />
 
-            <NumberInput 
-              labelNumber="Telephone No. 2" 
-              value={formData.telephone2}
-              onInputChange={(value) => handleInputChange("telephone2", value)}
-            />
+          <NumberInput
+            labelNumber="Telephone No. 2"
+            value={formData.telephone2}
+            onInputChange={(value) =>
+              handleInputChange("telephone2", value)
+            }
+          />
 
-            <TextInput 
-              labelText="Supplier"
-              value={formData.supplier}
-              onInputChange={(value) => handleInputChange("supplier", value)}
-            />
+          <TextInput
+            labelText="Supplier"
+            value={formData.supplier}
+            onInputChange={(value) => handleInputChange("supplier", value)}
+          />
 
-            <TextInput 
-              labelText="Volume" 
-              value={formData.volume}
-              onInputChange={(value) => handleInputChange("volume", value)}
-            />
+          <TextInput
+            labelText="Volume"
+            value={formData.volume}
+            onInputChange={(value) => handleInputChange("volume", value)}
+          />
 
-            <Dropdown 
-              labelText="Sales Agent" 
-              options={agents} 
-              value={formData.salesAgent}
-              onInputChange={(value) => handleInputChange("salesAgent", value)}
-            />
+          <Dropdown
+            labelText="Sales Agent"
+            options={agents}
+            value={formData.salesAgent}
+            onInputChange={(value) =>
+              handleInputChange("salesAgent", value)
+            }
+          />
 
-            <EmailInput 
-              labelText="Prospect's Email" 
-              value={formData.prospectEmail}
-              onInputChange={(value) => handleInputChange("prospectEmail", value)}
-            />
+          <EmailInput
+            labelText="Prospect's Email"
+            value={formData.prospectEmail}
+            onInputChange={(value) => handleInputChange("prospectEmail", value)}
+          />
 
-            <Attachment 
-              labelText="Image Upload" 
-              onImageUpload={(imageFile) => handleImageUpload(imageFile)}
-            />
-            <button type="submit" className="button">Submit</button>
-          </div>
-        </form>
-      </section>
-    </main>
+          <Attachment labelText="Image Upload" onImageUpload={handleImageUpload} />
+
+          <button type="submit" className="button">
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
   );
 }
 
