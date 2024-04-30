@@ -6,8 +6,7 @@ import EmailInput from "../components/email-input";
 import Attachment from "../components/attachment";
 import "../styles/styles.css"
 
-
-function Body(){
+function Body() {
   const [formData, setFormData] = useState({
     companyName: "",
     contactName: "",
@@ -25,32 +24,57 @@ function Body(){
   });
 
   const handleInputChange = (fieldName, value) => {
-    setFormData({
-      ...formData,
+    console.log("Field Name:", fieldName);
+    console.log("Value:", value);
+    setFormData(prevData => ({
+      ...prevData,
       [fieldName]: value,
-    });
+    }));
   };
+  
 
   const handleImageUpload = (imageFile) => {
-    setFormData({
-      ...formData,
+    setFormData(prevData => ({
+      ...prevData,
       image: imageFile,
-    });
+    }));
   };
 
-   //Handle Submit
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const response = await axios.post('http://localhost:3001/submit-form', formData);
-  //     console.log(response.data);
-  //     // Handle success response
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     // Handle error
-  //   }
-  // };
-    
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8000/api/prospects", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      console.log("Form submitted successfully");
+      // Optionally reset form data after successful submission
+      setFormData({
+        companyName: "",
+        contactName: "",
+        position: "",
+        city: "",
+        specificAddress: "",
+        mobileNumber: "",
+        telephone1: "",
+        telephone2: "",
+        supplier: "",
+        volume: "",
+        salesAgent: "",
+        prospectEmail: "",
+        image: null,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error
+    }
+  };
 
   const cities = [
     "Caloocan", "Las Piñas", "Makati", "Malabon", "Mandaluyong", "Manila", "Marikina", "Muntinlupa", "Navotas",
@@ -62,11 +86,11 @@ function Body(){
     "Tiamzon, Rose Ann",
     "Custodio, Ed Van Derrick",
   ];
-  
+
   return (
     <main className="container">
       <section className="form-box form-box--transparent">
-        <form className="form-track" /*onSubmit={handleSubmit}*/>
+        <form className="form-track" onSubmit={handleSubmit}>
           <h2 className="form-track__heading heading-2">Prospecting Form (NCR)</h2>
           <div className="form-track__block">  
             <TextInput 
@@ -88,7 +112,8 @@ function Body(){
             />
 
             <Dropdown 
-              labelText="Select City" options={cities} 
+              labelText="Select City" 
+              options={cities} 
               value={formData.city}
               onInputChange={(value) => handleInputChange("city", value)}
             />
@@ -130,14 +155,14 @@ function Body(){
             />
 
             <Dropdown 
-              labelText="Sales Agent" options={agents} 
+              labelText="Sales Agent" 
+              options={agents} 
               value={formData.salesAgent}
               onInputChange={(value) => handleInputChange("salesAgent", value)}
             />
 
             <EmailInput 
               labelText="Prospect's Email" 
-              labelNumber="Mobile Number" 
               value={formData.prospectEmail}
               onInputChange={(value) => handleInputChange("prospectEmail", value)}
             />
